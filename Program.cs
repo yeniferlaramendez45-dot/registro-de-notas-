@@ -4,12 +4,18 @@ class Program
 {
     static void Main(string[] args)
     {
-        
-        Console.Write("ingrese la cantidad de estudiantes: ");
-        int cantidadEstudiantes = int.Parse(Console.ReadLine()!);
+        int cantidadEstudiantes;
+        int cantidadMaterias;
 
-        Console.Write("ingrese la cantidad de materias: ");
-        int cantidadMaterias = int.Parse(Console.ReadLine()!);
+        do
+        {
+            Console.Write("ingrese la cantidad de estudiantes: ");
+        } while (!int.TryParse(Console.ReadLine(), out cantidadEstudiantes) || cantidadEstudiantes <= 0);
+
+        do
+        {
+            Console.Write("ingrese la cantidad de materias: ");
+        } while (!int.TryParse(Console.ReadLine(), out cantidadMaterias) || cantidadMaterias <= 0);
 
         string[] estudiantes = new string[cantidadEstudiantes];
         string[] materias = new string[cantidadMaterias];
@@ -27,9 +33,22 @@ class Program
             Console.WriteLine("4. mostrar notas");
             Console.WriteLine("5. mostrar promedio por estudiante");
             Console.WriteLine("6. salir");
-            Console.Write("\nSeleccione una opción: ");
 
-            opcion = int.Parse(Console.ReadLine()!);
+            // Validar opción del menú
+            bool esValido;
+            do
+            {
+                Console.Write("\nSeleccione una opción: ");
+                string? input = Console.ReadLine();
+                esValido = int.TryParse(input, out opcion);
+
+                if (!esValido || opcion < 1 || opcion > 6)
+                {
+                    esValido = false;
+                    Console.WriteLine("opción no válida. Ingrese un número del 1 al 6.");
+                }
+            } while (!esValido);
+
             Console.Clear();
 
             switch (opcion)
@@ -57,17 +76,17 @@ class Program
                 case 6:
                     Console.WriteLine("saliendo del programa...");
                     break;
-
-                default:
-                    Console.WriteLine("opción no válida.");
-                    break;
             }
 
-            Console.WriteLine("\nPresione cualquier tecla para continuar...");
-            Console.ReadKey();
+            if (opcion != 6)
+            {
+                Console.WriteLine("\nPresione cualquier tecla para continuar...");
+                Console.ReadKey();
+            }
 
         } while (opcion != 6);
     }
+
     static void RegistrarEstudiantes(string[] estudiantes)
     {
         Console.WriteLine("registro de estudiantes");
@@ -77,6 +96,7 @@ class Program
             estudiantes[i] = Console.ReadLine()!;
         }
     }
+
     static void RegistrarMaterias(string[] materias)
     {
         Console.WriteLine("registro de materias");
@@ -89,7 +109,7 @@ class Program
 
     static void IngresarNotas(string[] estudiantes, string[] materias, double[,] notas)
     {
-        Console.WriteLine("ingreso de Notas");
+        Console.WriteLine("ingreso de notas");
 
         for (int i = 0; i < estudiantes.Length; i++)
         {
@@ -101,36 +121,37 @@ class Program
                 do
                 {
                     Console.Write($"nota de {estudiantes[i]} en {materias[j]}: ");
-                    esValido = double.TryParse(Console.ReadLine(), out nota);
+                    string? input = Console.ReadLine();
+                    esValido = double.TryParse(input, out nota);
 
                     if (!esValido)
                     {
                         Console.WriteLine("ingrese un número válido.");
                     }
-
                 } while (!esValido);
 
                 notas[i, j] = nota;
             }
         }
     }
+
     static void MostrarNotas(string[] estudiantes, string[] materias, double[,] notas)
     {
         Console.WriteLine("notas registradas\n");
 
-        Console.Write("estudiante\t");
+        Console.Write("{0,-20}", "Estudiante");
         for (int j = 0; j < materias.Length; j++)
         {
-            Console.Write(materias[j] + "\t");
+            Console.Write("{0,-10}", materias[j]);
         }
         Console.WriteLine();
 
         for (int i = 0; i < estudiantes.Length; i++)
         {
-            Console.Write(estudiantes[i] + "\t\t");
+            Console.Write("{0,-20}", estudiantes[i]);
             for (int j = 0; j < materias.Length; j++)
             {
-                Console.Write(notas[i, j] + "\t");
+                Console.Write("{0,-10}", notas[i, j]);
             }
             Console.WriteLine();
         }
@@ -138,7 +159,7 @@ class Program
 
     static void MostrarPromedios(string[] estudiantes, string[] materias, double[,] notas)
     {
-        Console.WriteLine("promedio por estudiante\n");
+        Console.WriteLine("promedio por Estudiante\n");
 
         for (int i = 0; i < estudiantes.Length; i++)
         {
