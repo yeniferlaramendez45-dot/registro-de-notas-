@@ -1,0 +1,14 @@
+C:\Users\USUARIO\Desktop\proyectofinal\bin\Debug\net8.0\proyectofinal.exe
+C:\Users\USUARIO\Desktop\proyectofinal\bin\Debug\net8.0\proyectofinal.deps.json
+C:\Users\USUARIO\Desktop\proyectofinal\bin\Debug\net8.0\proyectofinal.runtimeconfig.json
+C:\Users\USUARIO\Desktop\proyectofinal\bin\Debug\net8.0\proyectofinal.dll
+C:\Users\USUARIO\Desktop\proyectofinal\bin\Debug\net8.0\proyectofinal.pdb
+C:\Users\USUARIO\Desktop\proyectofinal\obj\Debug\net8.0\proyectofinal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USUARIO\Desktop\proyectofinal\obj\Debug\net8.0\proyectofinal.AssemblyInfoInputs.cache
+C:\Users\USUARIO\Desktop\proyectofinal\obj\Debug\net8.0\proyectofinal.AssemblyInfo.cs
+C:\Users\USUARIO\Desktop\proyectofinal\obj\Debug\net8.0\proyectofinal.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Desktop\proyectofinal\obj\Debug\net8.0\proyectofinal.dll
+C:\Users\USUARIO\Desktop\proyectofinal\obj\Debug\net8.0\refint\proyectofinal.dll
+C:\Users\USUARIO\Desktop\proyectofinal\obj\Debug\net8.0\proyectofinal.pdb
+C:\Users\USUARIO\Desktop\proyectofinal\obj\Debug\net8.0\proyectofinal.genruntimeconfig.cache
+C:\Users\USUARIO\Desktop\proyectofinal\obj\Debug\net8.0\ref\proyectofinal.dll
